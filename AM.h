@@ -1,21 +1,19 @@
 #ifndef AM_H_
 #define AM_H_
 
-/* Error codes */
-
 int AM_errno;
 
 #define INTEGER 'i'
 #define FLOAT 'f'
 #define STRING 'c'
 
-#define AME_OK 0
-#define AME_EOF -1
-# define MAXFILES 20
-# define MAXSCANS 20
-
+#define MAXFILES 20
+#define MAXSCANS 20
 #define BLOCK_SIZE 1024
 
+/* Error codes */
+#define AME_OK 0
+#define AME_EOF -1
 #define AM_EXISTING_FILE -100
 #define AM_CANNOT_CREATE_FILE -101
 #define AM_CANNOT_OPEN_FILE -102
@@ -55,7 +53,7 @@ int AM_CreateIndex(
 
 int AM_DestroyIndex(char *fileName);
 
-int AM_OpenIndex (char *fileName); //Returns 'fileDesc'. A small int that identifies the opened index.
+int AM_OpenIndex (char *fileName); //Returns 'fileDesc'. A small int that is associated with that opened index.
 
 int AM_CloseIndex (int fileDesc);
 
@@ -70,7 +68,7 @@ int AM_OpenIndexScan(
   int op, /* operation code */
   void *value /* value of key attribute */
 );
-//Return 'scanDesc'. A small int that identifies the opened Scan.
+//Return 'scanDesc'. A small int that is associated with that opened Scan.
 
 void *AM_FindNextEntry(int scanDesc);
 
@@ -79,7 +77,7 @@ int AM_CloseIndexScan(int scanDesc);
 
 
 void AM_PrintError(
-  char *errString /* κείμενο για εκτύπωση */
+  char *errString /* text to be printed */
 );
 
 
