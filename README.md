@@ -1,11 +1,11 @@
-#Project Description
-###Contributors: Giorgos Daskalopoulos, Panagiotis Mavridis.
+# Project Description
+### Contributors: Giorgos Daskalopoulos, Panagiotis Mavridis.
 
 This project uses the BF library. BF stands for 'Block File'. BF library provides a way to store data into fixed-size blocks. Usually libraries like BF, are used from Databases and not for general Input/Output. <br>
 
 Aim of the project is building a static library for indexing, using B+ Tree schemes. <br>
 
-###AM library interface (Implemented by Panagiotis Mavridis):
+### AM library interface (Implemented by Panagiotis Mavridis):
   * AM_Init() : Initialization of global variables.
   * AM_CreateIndex(...) : Creation of a new index (Block-File).
   * AM_DestroyIndex(...) : Deletion of an existing index (Block-File).
@@ -19,7 +19,7 @@ Aim of the project is building a static library for indexing, using B+ Tree sche
 
 *All above functions' arguments are explained in AM.h header*
 
-###AM library inner functions (Implemented by Giorgos Daskalopoulos):
+### AM library inner functions (Implemented by Giorgos Daskalopoulos):
   * keycmp(key1*,key2*) : Compares two key values based on their type (string,int,float).
   * find_pointer(tree_block*,key*) : Iterates tree block to find id of next tree or data block that may contains key value.
   * new_entry(block*,entry*) :  Inserts entry into data or tree block.Returns proper error code if block is full.
@@ -28,8 +28,8 @@ Aim of the project is building a static library for indexing, using B+ Tree sche
   * search_rec(block_id,key*) : Traverse recursivly tree , returns block_id number that may contain entries with attribute1=key.
   * PrintFile() : Prints all tuples that there are stored into that file. Implemented mostly for debugging.
 
-###Current implementation limitations:
-  * B+ Tree doesn't support overfloat buckets. Inserting many identical records may lead to unexpected behavior.
+### Current implementation limitations:
+  * B+ Tree doesn't support overflow buckets. Inserting many identical records may lead to unexpected behavior.
   * Index is not thread safe.
   * Number of max concurrent scans is set at header, before compilation.
   * Maximum amount of indexes that library can handle is set at header, before compilation.
